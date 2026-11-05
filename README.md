@@ -1,6 +1,6 @@
 # Differential Responses to a Bright and Noisy World: How Sensory Pollution Influences Morphology and Condition Across Three Songbird Species
 
-**Authors**: Jennifer J. Heppner, Tessa M. Patton, Marlen Terrazas, Trenton Voytko, Eva M. Moylan, Isaiah Woodard, W. Paul Kessler, Courtney Tuskan, Abimael Romero, Elizabeth R. Heilman, Clinton D. Francis, Sara E. Lipshutz, Jennifer N. Phillips
+**Authors**: 
 
 ## Abstract
 
