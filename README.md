@@ -2,6 +2,8 @@
 
 **Authors**: 
 
+---
+
 ## Abstract
 
 1.	As anthropogenic land use expands and fundamentally restructures the global biosphere, the pervasive infiltration of artificial light at night and human-generated noise introduces novel selective pressures that penetrate even the most isolated habitats. These sensory pollutants rarely operate in isolation, and their combined influence on adult avian phenotypes remains a poorly understood dimension of global environmental change.
