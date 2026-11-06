@@ -20,5 +20,5 @@ All R code and data within the repository can be found in the corresponding fold
 - `Figures`: Contains all R code to replicate figures in the manuscript.
     - `Manuscript_Figures.csv`: Script to reproduce Figures 1 - 3 found in the Main Text and Figure S1 of the Supplementary Materials using `Adult_Morphology_Cavity.csv`.
       
-- `R_Main`: Contains all R scripts of main analyses in the manuscript:
+- `R Code`: Contains all R scripts of main analyses in the manuscript:
    - `Manuscript_Figures.csv`: 
