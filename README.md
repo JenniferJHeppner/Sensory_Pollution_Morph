@@ -18,10 +18,10 @@ All R code and data within the repository can be found in the corresponding fold
 - `Data/`: Contains all data used in the manuscript.
   - `Adult_Morphology_Cavity.csv`: Individual-level data on adult morphology. Contains columns for species (MOBL – Mountain Bluebird, WEBL – Western Bluebird, ATFL – Ash-throated Flycatcher), biological sex, individual service band ID, color band ID, sensory pollution treatment (Control, Light, Noise, Light+Noise), cluster section, site, date of collection, year, nest ID, age (SY – Second Year, AHY – After Hatch Year, ASY – After Second Year), reproductive stage (TE – territory establishment, Eggs – has eggs, Chx – has nestlings), lux (lux light values), LAeq (A-weighted noise levels), mass, tarsus length, wing length, individual measurer initials.
 
-- `Figures`: Contains all R code to replicate figures in the manuscript.
+- `Figures/`: Contains all R code to replicate figures in the manuscript.
     - `Manuscript_Figures.R`: Script to reproduce Figures 1 - 3 found in the Main Text and Figure S1 of the Supplementary Materials using `Adult_Morphology_Cavity.csv`.
       
-- `R Code`: Contains all R scripts of main analyses in the manuscript:
+- `R Code/`: Contains all R scripts of main analyses in the manuscript:
    - `ATFL_Adult_Morph.R`: Uses `Adult_Morphology_Cavity.csv` to analyze Ash-throated Flycatcher morphology. Runs species-specific linear and linear mixed-effects models across four response variables (wing length, tarsus length, body mass, and body condition calculated as a scaled mass index). Performs a two-step model selection approach: first determining the parsimonious random effect structure via AICc, and second evaluating competing macrohabitat (treatment groups) and continuous microhabitat (lux and LAeq) fixed-effect models with interactions, controlling for covariates.
    - `MOBL_Adult_Morph.R`: Uses `Adult_Morphology_Cavity.csv` to analyze Mountain Bluebird morphology. Implements the same two-step model selection framework (random structure optimization followed by information-theoretic fixed-effect ranking) across wing length, tarsus length, body mass, and body condition under macro- and microhabitat sensory pollutant treatments.
    - `WEBL_Adult_Morph.R`: Uses `Adult_Morphology_Cavity.csv` to analyze Western Bluebird morphology. Evaluates wing length, tarsus length, body mass, and body condition across the two-step model selection framework while incorporating age (SY, AHY, ASY) as an additional fixed covariate to account for experience variance.
