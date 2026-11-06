@@ -18,5 +18,7 @@ All R code and data within the repository can be found in the corresponding fold
   - `Adult_Morphology_Cavity.csv`: Individual-level data on adult morphology. Contains columns for species (MOBL – Mountain Bluebird, WEBL – Western Bluebird, ATFL – Ash-throated Flycatcher), biological sex, individual service band ID, color band combination, sensory pollution trt (Control, Light, Noise, Light+Noise), cluster section, site, date of collection, year, nest ID, age (SY – Second Year, AHY – After Hatch Year, ASY – After Second Year), reproductive stage (TE – territory establishment, Eggs – has eggs, Chx – has nestlings), lux (lux light values), LAeq (A-weighted noise levels), mass, tarsus length, wing length, individual measurer initials.
 
 - `Figures`: Contains all R code to replicate figures in the manuscript.
+    - `Manuscript_Figures.csv`: Script to reproduce Figures 1 - 3 found in the Main Text and Figure S1 of the Supplementary Materials using 'Adult_Morphology_Cavity.csv'.
+      
 - `R_Main`: Contains all R scripts of main analyses in the manuscript:
-- `R_Supp`: Contains R scripts for supplementary analyses.
+   - `Manuscript_Figures.csv`: 
