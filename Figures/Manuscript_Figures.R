@@ -136,7 +136,7 @@ mobl_wing
 #---- Figure 1B - MOBL Body Mass -----
 
 # LMER
-mobl_mass <- lmer(mass ~ scale(lux) + sex + (1 | section) + (1 | year) + (1 | stage) +  (1 | measurer), data = mobl, REML = FALSE)
+mobl_mass <- lmer(mass ~ scale(lux) + sex + (1|year) + (1|stage) + (1|measurer), data = mobl, REML = FALSE)
 summary(mobl_mass)
 confint(mobl_mass)
 confint(mobl_mass, level = 0.85)
@@ -746,7 +746,7 @@ atfl <- atfl %>%
   )
 
 # LMER
-atfl_bc_lux <- lmer(bc_wing ~ scale(lux) * sex + (1 | section) + (1 | stage) + (1 | measurer), data = atfl, REML = FALSE)
+atfl_bc_lux <- lmer(bc_wing ~ scale(lux) * sex + (1 | stage) + (1 | measurer), data = atfl, REML = FALSE)
 summary(atfl_bc_lux)
 confint(atfl_bc_lux)
 confint(atfl_bc_lux, level = 0.85)
