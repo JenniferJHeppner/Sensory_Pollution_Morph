@@ -177,6 +177,7 @@ mobl_mass_lux <- ggplot() +
 mobl_mass_lux
 
 
+
 #------------------------------------------------------------------------------
 #---- Figure 1C - MOBL BC -----
 # Calculate Body Condition using mass and wing
@@ -243,25 +244,16 @@ figure1_final <- figure1_final +
 
 figure1_final
 
-ggsave(
-  filename = "Figure_1_MOBL_Morph_26.png", 
-  plot = last_plot(),         
-  width = 12, 
-  height = 5, 
-  units = "in", 
-  dpi = 300,                  
-  bg = "white"                
-)
+# Save high-res output
+#ggsave(
+#  filename = "Figure_1_MOBL_Morph_26.png", 
+#  plot = last_plot(),         
+#  width = 12, 
+#  height = 5, 
+#  units = "in", 
+#  dpi = 300,                  
+#  bg = "white")
 
-ggsave(
-  filename = "Figure_1_Legend.png", 
-  plot = last_plot(),         
-  width = 330, 
-  height = 100, 
-  units = "mm", 
-  dpi = 300,                  
-  bg = "white"                
-)
 
 
 
@@ -274,7 +266,6 @@ ggsave(
 #---- Figure 2A - WEBL Mass Light -----
 # Subset the Data to only include WEBL
 webl <- dat %>% filter(species == "WEBL") %>% droplevels()
-
 
 # Remove outlier -  Does not change results
 webl <- webl %>%
@@ -319,6 +310,7 @@ webl_mass_lux <- ggplot() +
     legend.position = "none")
 
 webl_mass_lux
+
 
 
 #------------------------------------------------------------------------------
@@ -483,7 +475,6 @@ plot_df_webl$lux_label <- factor(plot_df_webl$group,
 scales::rescale(webl$lux)
 mean(scales::rescale(webl$lux), na.rm = T) # 0.2
 
-
 # Define your consistent anchor colors
 low_lux_col <- "midnightblue"  
 mean_lux_col <- "magenta4" 
@@ -527,8 +518,8 @@ webl_BC_int <- ggplot() +
     axis.line = element_line(linewidth = 0.8),
     plot.title = element_text(hjust = 0.5),
     plot.subtitle = element_text(hjust = 0.5, size = 11, color = "grey30"),
-    legend.position = "right",
-    #legend.position = "none",
+    #legend.position = "right",
+    legend.position = "none",
     legend.title = element_text(size = 10, face = "bold") ) +
   guides(
     fill = guide_colorbar(order = 2),
@@ -540,10 +531,8 @@ webl_BC_int
 
 #------------------------------------------------------------------------------
 #---- Figure 2F - WEBL BC Age -----
-# Calculate Body Condition using mass and wing
-BCwing <- smi(webl$mass, webl$wing)
-webl$bc_wing <- BCwing
 
+# Base off of same model in Figure 2B
 # LMER
 webl_BC_int <- lmer(bc_wing ~ scale(lux) * scale(LAeq) + sex + age + (1 | section) + (1 | stage), data = webl, REML = FALSE)
 summary(webl_BC_int)
@@ -569,7 +558,8 @@ webl_age_bc <- ggplot(webl, aes(x = age, y = bc_wing, color = age)) +
        color = "Age", shape = "Sex") +
   theme_classic(base_size = 14) +
   theme(axis.text = element_text(color = "black") ,
-        legend.position = "right",
+        #legend.position = "right",
+        legend.position = "none",
         axis.line = element_line(linewidth = 0.8),
         plot.title = element_text(hjust = 0.5))
 webl_age_bc
@@ -615,15 +605,15 @@ figure2_final
 
 
 # Save high-res output
-ggsave(
-  filename = "Figure_2_WEBL_Morph_26_age.png", 
-  plot = figure2_final,        
-  width = 8,
-  height = 11, 
-  units = "in", 
-  dpi = 300,                  
-  bg = "white"                
-)
+#ggsave(
+#  filename = "Figure_2_WEBL_Morph_26_age.png", 
+#  plot = figure2_final,        
+#  width = 8,
+#  height = 11, 
+#  units = "in", 
+#  dpi = 300,                  
+#  bg = "white")
+
 
 
 
@@ -631,6 +621,7 @@ ggsave(
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #---- Figure 3 - ATFL Morphology -----
+
 #------------------------------------------------------------------------------
 #---- Figure 3A - ATFL Wing Length & Lux -----
 # Subset the Data to only include ATFL
@@ -640,8 +631,7 @@ atfl <- dat %>% filter(species == "ATFL") %>% droplevels()
 atfl <- atfl %>%
   mutate(
     mass = ifelse(ID %in% c("2921-17874", "3251-02916"), NA, mass),
-    tarsus = ifelse(ID %in% c("2921-49602"), NA, tarsus)
-  )
+    tarsus = ifelse(ID %in% c("2921-49602"), NA, tarsus))
 
 # LMER
 atfl_wing_lux <- lmer(wing ~ scale(lux) * sex + (1 | measurer), data = atfl, REML = FALSE)
@@ -681,10 +671,6 @@ atfl_wing_lux <- ggplot() +
     #legend.position = "right")
     legend.position = "none")
 atfl_wing_lux
-
-
-
-
 
 
 
@@ -789,7 +775,6 @@ atfl_BC_lux
 
 
 
-
 #------------------------------------------------------------------------------
 #---- Figure 3 Multi-Panel -----
 # Combining figures
@@ -816,25 +801,16 @@ figure3_final <- figure3_final +
 figure3_final
 
 
-ggsave(
-  filename = "Figure_3_ATFL_Morph_26.png", 
-  plot = last_plot(),         
-  width = 12, 
-  height = 5, 
-  units = "in", 
-  dpi = 300,                  
-  bg = "white"                
-)
+# Save high-res output
+#ggsave(
+#  filename = "Figure_3_ATFL_Morph_26.png", 
+#  plot = last_plot(),         
+#  width = 12, 
+#  height = 5, 
+#  units = "in", 
+#  dpi = 300,                  
+#  bg = "white")
 
-ggsave(
-  filename = "Figure_3_Legend.png", 
-  plot = last_plot(),         
-  width = 225, 
-  height = 300, 
-  units = "mm", 
-  dpi = 300,                  
-  bg = "white"                
-)
 
 
 
@@ -850,7 +826,6 @@ webl_BC_int <- lmer(bc_wing ~ scale(lux) * scale(LAeq) + sex + age + (1 | sectio
 summary(webl_BC_int)
 confint(webl_BC_int)
 confint(webl_BC_int, level = 0.85)
-
 
 # Add sex to the terms argument
 inter_data_webl_sex <- predict_response(webl_BC_int, terms = c("LAeq [all]", "lux [-1, 0, 1]", "sex"))
@@ -927,15 +902,11 @@ webl_BC_int
 
 
 
-ggsave(
-  filename = "Figure_S1_WEBL_BC_sex.png", 
-  plot = last_plot(),         
-  width = 250, 
-  height = 125,  
-  units = "mm", 
-  dpi = 300,                  
-  bg = "white"                
-)
-
-
-
+#ggsave(
+#  filename = "Figure_S1_WEBL_BC_sex.png", 
+#  plot = last_plot(),         
+#  width = 250, 
+#  height = 125,  
+#  units = "mm", 
+#  dpi = 300,                  
+#  bg = "white")
